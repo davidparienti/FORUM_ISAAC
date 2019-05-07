@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Profil Page</title>
+​
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+ 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+	  <a class="navbar-brand text-info" href="#">PROFIL</a>
+	</nav>
+	<br>
+	
+	<h4> Modifier l'utilisateur : {{ user. username }} </h4>
+
+		{% for error_message in get_flashed_messages() %}
+     	<li>{{ error_message }}</li>
+    	{% endfor %}
+
+	{% if 'username' in session and user.username == session['username'] %}
+	  <div class="col mt-3 mx-auto text-primary font-italic ">
+	  <form method="POST" action="/profil/{{ user.id }}/password">
+		<label> Old password</label><br>
+        <input type="password" class="form-control mx-auto " name="old-password"> <br>
+        <label> New Password</label><br>
+        <input type="password" class="form-control mx-auto " name="new-password"> <br>
+        <button type="submit" class="btn btn-outline-primary  btn-block">save</button>
+      </form>
+      <form method="POST" action="/profil/{{ user.id }}/username">
+        <label> New username</label><br>
+        <input type="text" class="form-control mx-auto " name="new-username"> <br>
+        <button type="submit" class="btn btn-outline-primary  btn-block">save</button>
+      </form>
+      {% endif %}
+
+		    {% for message in messages %}
+		    <div class="card mt-3 mb-3">
+		       	<div class="card-body">
+		       		<div class="card-footer text-muted">From : {{ user.username }} </a> </div>
+		            <p class="card-text">{{ message.text }}</p>
+		            <div class="card-footer text-muted">Publie le : {{ message.date }}</div>
+		        </div>
+		    </div>
+		    {% endfor %}
+		  </ul>
+		</div>
+	</div>
+
+</body>
+</html>
+
+

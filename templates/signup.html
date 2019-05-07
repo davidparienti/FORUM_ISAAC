@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add user</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style type="text/css">
+        .container{
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+		<nav class="navbar navbar-dark bg-dark">
+        	<a class="navbar-brand text-info" href="#">add user</a>
+    	</nav>
+
+        {% for error_message in get_flashed_messages() %}
+            <li>{{ error_message }}</li>
+            {% endfor %}
+
+	<div class="col mt-4 mx-auto text-primary font-italic ">
+      <form method="POST" action="/signup">
+        <label for="username">username</label><br>
+        <input type="text" class="form-control mx-auto " name="username" placeholder="Enter username"><br>
+
+		<label for="password">password</label><br>
+        <textarea type="password" class="form-control mx-auto " name="password" placeholder="Enter password"></textarea><br>
+
+        <button type="submit" class="btn btn-outline-primary  btn-block">save</button>
+      </form>
+            
+    </div>
+
+</body>
+</html>

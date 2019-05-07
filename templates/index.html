@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index Page</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand text-info" href="#">Discussions</a>
+    {% if 'username' in session %}
+    <a href="/logout" class="btn btn-primary">logout</a>
+    {% else %}
+    <a href="/signup" class="btn btn-primary">Sign up </a>
+    <a href="/login" class="btn btn-primary">login</a>
+    {% endif %}
+  </nav>
+  	<div class="row align-items-center">	  
+		<div class="col-sm-8 offset-2">  
+		  <ul>
+		    {% for discussion in discussions %}
+		    <div class="card mt-3 mb-3">
+		       	<div class="card-body">
+		            <a href="/messages/{{ discussion.id }}/" class="card-text">{{ discussion.title }}</a>
+		        </div>
+		        <br>
+		    </div>
+		    {% endfor %}
+		  </ul>
+		</div>
+	</div>
+  
+
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+Creation d'un forum de débat sur la Gemara
+Le forum permet aux utilisateurs de créer un compte. Une fois connecté, l’utilisateur a accès à une page d’accueil qui contient la liste des fils de discussion du forum. Il peut cliquer sur chaque fil de discussion pour lire les messages et il a l’option de laisser un message lui-même.
+
+Outils
+Flask (http://flask.pocoo.org)
+SQL Alchemy (http://flask-sqlalchemy.pocoo.org/2.3/)
+Alembic (https://flask-alembic.readthedocs.io/en/stable/)
+Sessions (http://flask.pocoo.org/docs/1.0/quickstart/#sessions)
+Bootstrap (https://getbootstrap.com)
+Faker (https://faker.readthedocs.io/en/latest/index.html)
+Utilisateurs
+Page “signup” dédiée à la création d’un compte et page “login” pour se connecter avec son nom d’utilisateur et mot de passe.
+
+Fils de discussion
+La liste des fils de discussion est disponible sur la page d’accueil. Sur chaque carte de fil de discussion on trouve le titre du fil, la date du dernier message et le nombre de messages dans la discussion. En haut de la page, on trouve une boite pour laisser un message sur cette discussion.
+
+Messages
+Quand l’utilisateur clique sur un fil de discussion, il arrive sur une page avec la liste des messages de la discussion triés par date (le plus récents sont en haut). Chaque message a son texte, sa date de publication et le nom de l’utilisateur qui l’a écrit. Le nom de l’utilisateur est un lien qui permet de visiter le profil de l’utilisateur.
+
+Profils
+Chaque utilisateur a son profil. Sur son profil, on trouve son nom et la liste des messages qui a laissé. Sur chaque message, on trouve un lien vers le fil de discussion où ce message a été laissé.
+
+Tags
+Créer une page où chaque utilisateur peut ajouter un tag. Ces tags sont utilisés pour catégoriser les fils de discussion. Cette page nous donne la liste des tags existants avec un formulaire pour créer un nouveau tag.
+
+Dans chaque fil de discussion on trouve un menu déroulant qui permet de choisir le tag de la discussion.
+
+Chaque tag est un lien vers une page qui liste tous les fils de discussions avec le tag sur lequel l’utilisateur a cliqué.
+
+Recherche
+Créer une page où l’on peut chercher avec un formulaire des discussion à travers leur tag : l’utilisateur entre le nom d’un tag puis clique sur un bouton qui redirige vers une page avec la liste des discussions associées à un tag.
+
+Données
+Utiliser un script Faker pour remplir vôtre base de données.

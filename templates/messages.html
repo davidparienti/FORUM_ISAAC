@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messages Page</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand text-info" href="#">Messages</a>
+    {% if 'username' in session %}
+    <a href="/logout" class="btn btn-primary">logout</a>
+    {% else %}
+    <a href="/login" class="btn btn-primary">login</a>
+    {% endif %}
+  </nav>
+	<div class="row align-items-center">	  
+		<div class="col-sm-8 offset-2"> 
+		<div class="card-footer text-center" style="background-color: #e3f2fd;" >SUJET DE DISCUSSION- {{ discussion.title }}</div><br>
+		<br>
+		{% if 'username' in session %}
+		<form method="POST" action="/messages/{{ discussion.id }}/">
+          <label for="exampleFormControlTextarea1" style="color: #000000">Laissez un message sur ce fil de discussion</label>
+          <textarea class="form-control" name="text"></textarea><br>
+          <button type="submit" class="btn btn-primary mt-3">postez votre discussion</button>
+          </form>
+          {% endif %}
+		  <ul>	
+		    {% for message in messages %}
+		    <div class="card mt-3 mb-3">
+		       	<div class="card-body">
+		       		<div class="card-footer text-muted">From : <a href="/profil/{{ message.user.id }}" class="btn btn-outline-secondary">{{ message.user.username }} </a> </div>
+		            <p class="card-text">{{ message.text }}</p>
+		            <div class="card-footer text-muted">Publie le : {{ message.date }}</div>
+		        </div>
+		    </div>
+		    {% endfor %}
+		  </ul>
+		</div>
+	</div>
+
+</body>
+</html>
+
+
